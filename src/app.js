@@ -1,8 +1,48 @@
 import "./style.css";
 
-window.onload = function() {
+/*(window.onload = function() {
   generarCarta(valores, naipes);
-};
+};*/
+
+var sec = 0;
+let tmpSec = localStorage.getItem("secs");
+if (tmpSec != null) {
+  sec = parseInt(tmpSec, 10);
+}
+function pad(val) {
+  return val > 9 ? val : "0" + val;
+}
+setInterval(function() {
+  ++sec;
+  if (sec % 10 == 0) {
+    generar();
+  }
+  localStorage.setItem("secs", sec);
+  document.getElementById("seconds").innerHTML = pad(sec % 60);
+}, 1000);
+
+function generar() {
+  console.log();
+  let wrap = document.querySelector(".wrapper");
+  console.log(wrap);
+  if (wrap != null) {
+    deleteItem();
+  }
+  generarCarta(valores, naipes);
+}
+
+function deleteItem() {
+  let span = document.querySelector(".wrapper");
+  console.log(span);
+  console.log("--------");
+  console.log(span.parentElement);
+  console.log("--------");
+  document.querySelector("#cartagenerada").removeChild(span);
+  console.log(span);
+}
+
+let element = document.getElementById("boton");
+element.addEventListener("click", generar);
 
 let valores = [
   "A",
@@ -45,16 +85,14 @@ function generarCarta(x, y) {
   let tipoCarta = "carta" + " " + palo;
   let divCarta = crearDivClass(tipoCarta);
   let divHeader = crearDivClass("carta-icon-header");
-  let divFooter = crearDivClass("carta-icon-footer");
-
   let divValor = crearDivClass("carta-val");
+  let divFooter = crearDivClass("carta-icon-footer");
 
   if (valor === "A") {
     divValor = crearDivClass("a-carta-val");
     divHeader.classList.remove("carta-icon-header");
     divHeader = crearDivClass("a-carta-header");
     divHeader.innerHTML = valor;
-
     divFooter.classList.remove("carta-icon-footer");
     divFooter = crearDivClass("a-carta-footer");
     divFooter.innerHTML = valor;
@@ -66,8 +104,16 @@ function generarCarta(x, y) {
   agregarDivs(divCarta, divsHijos);
 
   let divWrapper = crearDivClass("wrapper");
-  let divBody = document.getElementsByTagName("body")[0];
+  let divBoton = crearDivClass("boton");
+  let boton = document.createElement("button");
+  boton.innerHTML = "Generar";
+  console.log(boton);
+  agregarDivs(divBoton, boton);
+  console.log(divBoton);
+  let divBody = document.getElementById("cartagenerada");
+  console.log(divBody);
 
   agregarDivs(divWrapper, [divCarta]);
-  agregarDivs(divBody, [divWrapper]);
+  divBody.appendChild(divWrapper);
+  //agregarDivs(divBody, [divWrapper]);
 }

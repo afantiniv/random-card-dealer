@@ -8,7 +8,7 @@ body {
 
 .wrapper {
   margin: 0;
-  height: 100vh;
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,4 +111,8 @@ body {
   font-size: 100px;
   font-weight: bold;
   transform: rotate(180deg);
+}
+
+#ajustes {
+  margin-top: 20px;
 }
