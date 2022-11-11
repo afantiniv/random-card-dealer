@@ -16,12 +16,12 @@ body {
 
 .carta {
   display: grid;
-
   grid-template-rows: 50px auto 50px;
   background-color: #ffffff;
   width: 420px;
   height: 620px;
   padding: 1em;
+  border: 2px solid black;
   border-radius: 5%;
 }
 
@@ -47,7 +47,7 @@ body {
   text-align: right;
 }
 
-.espadas .a-card-val::after {
+.espadas .a-carta-val::after {
   content: "\2660";
 }
 
