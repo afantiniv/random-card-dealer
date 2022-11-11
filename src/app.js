@@ -17,7 +17,7 @@ let valores = [
   "10",
   "J",
   "Q",
-  "K",
+  "K"
 ];
 let naipes = ["corazon", "diamantes", "trebol", "espadas"];
 

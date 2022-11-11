@@ -15,14 +15,14 @@ body {
 }
 
 .carta {
-  background-color: #ffffff;
-  width: 400px;
-  height: 600px;
-  padding: 1em;
-  border-radius: 2%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   display: grid;
+
   grid-template-rows: 50px auto 50px;
+  background-color: #ffffff;
+  width: 420px;
+  height: 620px;
+  padding: 1em;
+  border-radius: 5%;
 }
 
 .carta-icon-header {
@@ -39,12 +39,12 @@ body {
 }
 
 .carta-icon-footer {
-  font-size: 135px;
-  line-height: 100px;
-  text-align: right;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+  font-size: 135px;
+  line-height: 100px;
+  text-align: right;
 }
 
 .espadas .a-card-val::after {
@@ -97,15 +97,18 @@ body {
 }
 
 .a-carta-header {
-  font-size: 100px;
   line-height: 70px;
   text-align: left;
+  font-size: 100px;
+  font-weight: bold;
 }
 
 .a-carta-footer {
-  font-size: 100px;
+  display: flex;
+
   line-height: 70px;
   text-align: right;
-  display: flex;
+  font-size: 100px;
+  font-weight: bold;
   transform: rotate(180deg);
 }
